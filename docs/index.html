@@ -3,17 +3,43 @@
 
 <head>
   <title>Image Classification</title>
+  <link rel="stylesheet" href="./styles.css"/>
 </head>
 
 <body>
   <h1>Brain Tumor Classification</h1>
-  <form id="uploadForm" enctype="multipart/form-data" action="/predict">
-    <input type="file" id="imageUpload" accept="image/*" required>
-    <button type="submit">Upload and Classify</button>
-  </form>
-  <img id="previewImage" alt="Preview"/>
-  <div id="result"></div>
-
+  <div class="description">
+    <p>This model uses a CNN to classify tumors in MRI scans into 4 classes: no tumor, meningioma tumor, pituitary tunmor, or glioma tumor.</p>
+    <p>It's able to achieve 75% accuracy on unseen test set, and while this is not industry-grade accuracy since the model is trained on a CPU with limited capacity, it can be a useful tool to help medical students study and build up intuition with MRI images, or help medical professionals get a quick sense of what a tumor might be.</p>
+  </div>
+    <h3>Upload an MRI scan to get started</h3>
+  <div class="operation">
+    <form id="uploadForm" enctype="multipart/form-data" action="/predict">
+      <input type="file" id="imageUpload" accept="image/*" required>
+      <button type="submit">Upload and Classify</button>
+    </form>
+    <img id="previewImage" alt="Preview" />
+    <div id="result"></div>
+  </div>
+  <p>Example photos you can use to test the model:</p>
+  <div class="ex-imgs">
+    <figure>
+      <img src="../data/train/glioma_tumor/gg (1).jpg" />
+      <figcaption>Glioma tumor</figcaption>
+    </figure>
+    <figure>
+      <img src="../data/train/meningioma_tumor/m (2).jpg" />
+      <figcaption>Meningioma tumor</figcaption>
+    </figure>
+    <figure>
+      <img src="../data/train/pituitary_tumor/p (2).jpg" />
+      <figcaption>Pituitary tumor</figcaption>
+    </figure>
+    <figure>
+      <img src="../data/train/no_tumor/1.jpg" />
+      <figcaption>No tumor</figcaption>
+    </figure>
+  </div>
   <script src="script.js"></script>
 </body>
 
